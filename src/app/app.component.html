@@ -1,0 +1,72 @@
+<h1>Directivas Estructurales</h1>
+<h2>ngIf</h2>
+<div *ngIf="mostrarContenidoNgIf">
+  <p>Si el flag es true se debería ver</p>
+</div>
+<div *ngIf="!mostrarContenidoNgIf">
+  <p>Si el flag es false se debería ver</p>
+</div>
+
+<h2>ngFor</h2>
+<div>
+  <p>Lista de nombres</p>
+  <ul>
+    <li *ngFor="let item of listaDeCadenas">{{ item }}</li>
+  </ul>
+</div>
+
+<h2>ngSwitch</h2>
+<div>
+  <p>Hincha de?</p>
+  <ul [ngSwitch]="hinchaDe">
+    <li *ngSwitchCase="'independiente'">Del Rojo de Avellaneda</li>
+    <li *ngSwitchCase="'talleres'">De la T</li>
+    <li *ngSwitchCase="'belgrano'">Del Pirate</li>
+    <li *ngSwitchDefault>De Argentina</li>
+  </ul>
+</div>
+
+<h1>Directivas de Atributos</h1>
+<div>
+  <p>Hola! yo estoy sin directiva</p>
+</div>
+
+<div [ngClass]="{ 'TextoGrandeFondoNegro': aplicarClaseTextoGrandeFondoNegro , 'TextoGrandeSinFondo': !aplicarClaseTextoGrandeFondoNegro }">
+  <p>Hola! yo estoy con directiva ngClass</p>
+</div>
+
+<div [ngStyle]="{ 'backgroundColor': aplicarFondoVerde ? 'green' : 'yellow' , 'color': aplicarTextBlanco ? 'white' : 'black' }">
+  <p>Hola! yo estoy con directiva ngStyle</p>
+</div>
+
+
+<h1>Directivas Personalizadas</h1>
+<div>
+  <p>Hola! yo estoy sin directiva</p>
+</div>
+
+<div divColorDeFondo="red">
+  <p>Hola! yo tengo una directiva personalizada de color Rojo</p>
+</div>
+
+<div divColorDeFondo>
+  <p>Hola! yo tengo una directiva personalizada de color Azul</p>
+</div>
+
+<h1>Pipes</h1>
+<div>
+  <p>Precio de algo: {{ precio | currency:'EUR':'code' }}</p>
+  <p>Precio de algo: {{ precio | currency:'EUR':'symbol' }}</p>
+</div>
+<div>
+  {{ mauricioPersona | json }}
+</div>
+<div>
+  {{ mauricioPersona.fechaDeNacimiento | date }}
+</div>
+
+<h1>Pipe Custom</h1>
+<div>
+  <p>Precio de algo en $: {{ precio | currency:'ARS':'symbol' }}</p>
+  <p>Precio de algo en U$D: {{ precio | pesosToDolar:'oficial' | currency:'USD':'code' }}</p>
+</div>

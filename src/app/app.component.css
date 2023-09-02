@@ -1,0 +1,10 @@
+
+.TextoGrandeFondoNegro {
+    color: white;
+    font-size: large;
+    background-color: black;
+}
+
+.TextoGrandeSinFondo {
+    font-size: large;
+}
